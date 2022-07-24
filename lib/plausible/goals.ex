@@ -33,7 +33,8 @@ defmodule Plausible.Goals do
   def for_site(domain) do
     Repo.all(
       from g in Goal,
-        where: g.domain == ^domain
+        where: g.domain == ^domain,
+        order_by: g.event_name
     )
   end
 
